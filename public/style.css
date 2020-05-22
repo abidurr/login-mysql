@@ -1,3 +1,11 @@
 body {
     background-color: darkslategray;
 }
+
+nav {
+    background-color: lightseagreen;
+    color: lightpink;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -25,10 +25,7 @@ db.connect( (error) => {
     }
 })
 
-app.get("/", (req, res) => {
-    // res.send("<h1>Home Page</h1>")
-    res.render("index")
-})
+app.use("/", require("./routes/pages"))
 
 app.listen(3000, () => {
     console.log("Server started on port 3000")

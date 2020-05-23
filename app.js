@@ -15,6 +15,12 @@ const db = mysql.createConnection({
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
+
+// Parse URL-encoded bodies as sent by HTML forms
+app.use(express.urlencoded({ extended: false }));
+// Parse JSON body
+app.use(express.json());
+
 app.set('view engine', 'hbs');
 
 db.connect( (error) => {
@@ -25,7 +31,9 @@ db.connect( (error) => {
     }
 })
 
+// Routes
 app.use("/", require("./routes/pages"))
+app.use("/auth", require("./routes/auth"))
 
 app.listen(3000, () => {
     console.log("Server started on port 3000")
